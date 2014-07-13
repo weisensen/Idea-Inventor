@@ -14,13 +14,20 @@
 		4CEC7DC01972760200D3360A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7DBF1972760200D3360A /* main.m */; };
 		4CEC7DC41972760200D3360A /* SAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7DC31972760200D3360A /* SAPAppDelegate.m */; };
 		4CEC7DC71972760200D3360A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC7DC51972760200D3360A /* Main.storyboard */; };
-		4CEC7DCA1972760200D3360A /* SAPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7DC91972760200D3360A /* SAPViewController.m */; };
 		4CEC7DCC1972760200D3360A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC7DCB1972760200D3360A /* Images.xcassets */; };
 		4CEC7DD31972760200D3360A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC7DD21972760200D3360A /* XCTest.framework */; };
 		4CEC7DD41972760200D3360A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC7DB31972760200D3360A /* Foundation.framework */; };
 		4CEC7DD51972760200D3360A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CEC7DB71972760200D3360A /* UIKit.framework */; };
 		4CEC7DDD1972760200D3360A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC7DDB1972760200D3360A /* InfoPlist.strings */; };
 		4CEC7DDF1972760200D3360A /* Idea_InventorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7DDE1972760200D3360A /* Idea_InventorTests.m */; };
+		4CEC7DEB19728BAD00D3360A /* SAPAddTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7DE919728BAD00D3360A /* SAPAddTopicViewController.m */; };
+		4CEC7DEC19728BAD00D3360A /* SAPAddTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC7DEA19728BAD00D3360A /* SAPAddTopicViewController.xib */; };
+		4CEC7DF0197290C100D3360A /* SAPTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7DEE197290C100D3360A /* SAPTopicTableViewController.m */; };
+		4CEC7DF1197290C100D3360A /* SAPTopicTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEC7DEF197290C100D3360A /* SAPTopicTableViewController.xib */; };
+		4CEC7DFC1972BF6B00D3360A /* SAPTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7DFB1972BF6B00D3360A /* SAPTopicTableViewCell.m */; };
+		4CEC7E051972C08700D3360A /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7E031972C08700D3360A /* Database.xcdatamodeld */; };
+		4CEC7E081972C2E200D3360A /* Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7E071972C2E200D3360A /* Topic.m */; };
+		4CEC7E0B1972C38400D3360A /* Idea.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEC7E0A1972C38400D3360A /* Idea.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +52,25 @@
 		4CEC7DC21972760200D3360A /* SAPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAPAppDelegate.h; sourceTree = "<group>"; };
 		4CEC7DC31972760200D3360A /* SAPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAPAppDelegate.m; sourceTree = "<group>"; };
 		4CEC7DC61972760200D3360A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4CEC7DC81972760200D3360A /* SAPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAPViewController.h; sourceTree = "<group>"; };
-		4CEC7DC91972760200D3360A /* SAPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAPViewController.m; sourceTree = "<group>"; };
 		4CEC7DCB1972760200D3360A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CEC7DD11972760200D3360A /* Idea-InventorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Idea-InventorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEC7DD21972760200D3360A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		4CEC7DDA1972760200D3360A /* Idea-InventorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Idea-InventorTests-Info.plist"; sourceTree = "<group>"; };
 		4CEC7DDC1972760200D3360A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4CEC7DDE1972760200D3360A /* Idea_InventorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Idea_InventorTests.m; sourceTree = "<group>"; };
+		4CEC7DE819728BAD00D3360A /* SAPAddTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPAddTopicViewController.h; sourceTree = "<group>"; };
+		4CEC7DE919728BAD00D3360A /* SAPAddTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPAddTopicViewController.m; sourceTree = "<group>"; };
+		4CEC7DEA19728BAD00D3360A /* SAPAddTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAPAddTopicViewController.xib; sourceTree = "<group>"; };
+		4CEC7DED197290C100D3360A /* SAPTopicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPTopicTableViewController.h; sourceTree = "<group>"; };
+		4CEC7DEE197290C100D3360A /* SAPTopicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPTopicTableViewController.m; sourceTree = "<group>"; };
+		4CEC7DEF197290C100D3360A /* SAPTopicTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SAPTopicTableViewController.xib; sourceTree = "<group>"; };
+		4CEC7DFA1972BF6B00D3360A /* SAPTopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPTopicTableViewCell.h; sourceTree = "<group>"; };
+		4CEC7DFB1972BF6B00D3360A /* SAPTopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPTopicTableViewCell.m; sourceTree = "<group>"; };
+		4CEC7E041972C08700D3360A /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
+		4CEC7E061972C2E200D3360A /* Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Topic.h; sourceTree = "<group>"; };
+		4CEC7E071972C2E200D3360A /* Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Topic.m; sourceTree = "<group>"; };
+		4CEC7E091972C38400D3360A /* Idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Idea.h; sourceTree = "<group>"; };
+		4CEC7E0A1972C38400D3360A /* Idea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Idea.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +130,14 @@
 		4CEC7DB91972760200D3360A /* Idea-Inventor */ = {
 			isa = PBXGroup;
 			children = (
+				4CEC7DCB1972760200D3360A /* Images.xcassets */,
 				4CEC7DC21972760200D3360A /* SAPAppDelegate.h */,
 				4CEC7DC31972760200D3360A /* SAPAppDelegate.m */,
 				4CEC7DC51972760200D3360A /* Main.storyboard */,
-				4CEC7DC81972760200D3360A /* SAPViewController.h */,
-				4CEC7DC91972760200D3360A /* SAPViewController.m */,
-				4CEC7DCB1972760200D3360A /* Images.xcassets */,
+				4CEC7DF41972B93F00D3360A /* Idea */,
+				4CEC7DF31972B8E800D3360A /* Topic */,
+				4CEC7DF91972BF2300D3360A /* Topic Detail */,
+				4CEC7DF81972BA8800D3360A /* Model */,
 				4CEC7DBA1972760200D3360A /* Supporting Files */,
 			);
 			path = "Idea-Inventor";
@@ -150,6 +170,47 @@
 				4CEC7DDB1972760200D3360A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4CEC7DF31972B8E800D3360A /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				4CEC7DED197290C100D3360A /* SAPTopicTableViewController.h */,
+				4CEC7DEE197290C100D3360A /* SAPTopicTableViewController.m */,
+				4CEC7DEF197290C100D3360A /* SAPTopicTableViewController.xib */,
+				4CEC7DE819728BAD00D3360A /* SAPAddTopicViewController.h */,
+				4CEC7DE919728BAD00D3360A /* SAPAddTopicViewController.m */,
+				4CEC7DEA19728BAD00D3360A /* SAPAddTopicViewController.xib */,
+			);
+			name = Topic;
+			sourceTree = "<group>";
+		};
+		4CEC7DF41972B93F00D3360A /* Idea */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Idea;
+			sourceTree = "<group>";
+		};
+		4CEC7DF81972BA8800D3360A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CEC7E031972C08700D3360A /* Database.xcdatamodeld */,
+				4CEC7E061972C2E200D3360A /* Topic.h */,
+				4CEC7E071972C2E200D3360A /* Topic.m */,
+				4CEC7E091972C38400D3360A /* Idea.h */,
+				4CEC7E0A1972C38400D3360A /* Idea.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4CEC7DF91972BF2300D3360A /* Topic Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4CEC7DFA1972BF6B00D3360A /* SAPTopicTableViewCell.h */,
+				4CEC7DFB1972BF6B00D3360A /* SAPTopicTableViewCell.m */,
+			);
+			name = "Topic Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CEC7DCC1972760200D3360A /* Images.xcassets in Resources */,
+				4CEC7DEC19728BAD00D3360A /* SAPAddTopicViewController.xib in Resources */,
+				4CEC7DF1197290C100D3360A /* SAPTopicTableViewController.xib in Resources */,
 				4CEC7DBE1972760200D3360A /* InfoPlist.strings in Resources */,
 				4CEC7DC71972760200D3360A /* Main.storyboard in Resources */,
 			);
@@ -251,8 +314,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CEC7DC01972760200D3360A /* main.m in Sources */,
-				4CEC7DCA1972760200D3360A /* SAPViewController.m in Sources */,
+				4CEC7DEB19728BAD00D3360A /* SAPAddTopicViewController.m in Sources */,
+				4CEC7DF0197290C100D3360A /* SAPTopicTableViewController.m in Sources */,
 				4CEC7DC41972760200D3360A /* SAPAppDelegate.m in Sources */,
+				4CEC7E0B1972C38400D3360A /* Idea.m in Sources */,
+				4CEC7E051972C08700D3360A /* Database.xcdatamodeld in Sources */,
+				4CEC7E081972C2E200D3360A /* Topic.m in Sources */,
+				4CEC7DFC1972BF6B00D3360A /* SAPTopicTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +535,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4CEC7E031972C08700D3360A /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4CEC7E041972C08700D3360A /* Database.xcdatamodel */,
+			);
+			currentVersion = 4CEC7E041972C08700D3360A /* Database.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4CEC7DA81972760200D3360A /* Project object */;
 }
