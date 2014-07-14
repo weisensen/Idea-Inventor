@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SAPTopicTableViewController : UITableViewController
+@interface SAPTopicTableViewController : UITableViewController 
 
-@property NSMutableArray *TopicList;
 
 - (IBAction)unwindToTopic:(UIStoryboardSegue *)segue;
 

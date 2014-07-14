@@ -10,7 +10,22 @@
 #import "SAPTopicTableViewCell.h"
 #import "Topic.h"
 
-@interface SAPTopicTableViewController ()
+// This framework is imported so we can use the kCFURLErrorNotConnectedToInternet error code.
+#import <CFNetwork/CFNetwork.h>
+
+@interface SAPTopicTableViewController () <UIActionSheetDelegate, NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
+
+@property (nonatomic, strong) UIBarButtonItem *activityIndicator;
+@property (nonatomic)         NSMutableArray *TopicList;
+
+@property (nonatomic) NSOperationQueue *parseQueue;     // queue that manages our NSOperation for parsing earthquake data.
+
+
 
 @end
 
@@ -45,29 +60,136 @@
 {
     
     // Return the number of sections.
-    return 1;
+    //return 1;
+    return [[self.fetchedResultsController sections] count];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.TopicList count];
+    //return [self.TopicList count];
+    NSInteger numberOfRows = 0;
+	
+    if ([[self.fetchedResultsController sections] count] > 0) {
+        id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+        numberOfRows = [sectionInfo numberOfObjects];
+    }
     
+    return numberOfRows;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     SAPTopicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TopicIdentifier" forIndexPath:indexPath];
     
     Topic *topic = [self.TopicList objectAtIndex:indexPath.row];
     
-    // Configure the cell...
     [cell configureWithTopic: topic];
+    */
     
+    static NSString *topicIdentifier = @"TopicIdentifier";
+  	SAPTopicTableViewCell *cell = (SAPTopicTableViewCell *)[tableView dequeueReusableCellWithIdentifier:topicIdentifier];
+    
+    Topic *topic = (Topic *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+    [cell configureWithTopic:topic];
+
     return cell;
 }
 
+// called after fetched results controller received a content change notification
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    
+    [self.tableView reloadData];
+}
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    
+    // Set up the fetched results controller if needed.
+    if (_fetchedResultsController == nil) {
+        // Create the fetch request for the entity.
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        // Edit the entity name as appropriate.
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Topic"
+                                                  inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        // Edit the sort key as appropriate.
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"CreatedOn" ascending:NO];
+        NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+        
+        [fetchRequest setSortDescriptors:sortDescriptors];
+        
+        // Edit the section name key path and cache name if appropriate.
+        // nil for section name key path means "no sections".
+        NSFetchedResultsController *aFetchedResultsController =
+        [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                            managedObjectContext:self.managedObjectContext
+                                              sectionNameKeyPath:nil
+                                                       cacheName:nil];
+        self.fetchedResultsController = aFetchedResultsController;
+        
+        self.fetchedResultsController.delegate = self;
+        
+        NSError *error = nil;
+        
+        if (![self.fetchedResultsController performFetch:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate.
+            // You should not use this function in a shipping application, although it may be useful
+            // during development. If it is not possible to recover from the error, display an alert
+            // panel that instructs the user to quit the application by pressing the Home button.
+            //
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        
+    }
+	
+	return _fetchedResultsController;
+}
+
+
+
+// merge changes to main context,fetchedRequestController will automatically monitor the changes and update tableview.
+- (void)updateMainContext:(NSNotification *)notification {
+    
+    assert([NSThread isMainThread]);
+    [self.managedObjectContext mergeChangesFromContextDidSaveNotification:notification];
+}
+
+// this is called via observing "NSManagedObjectContextDidSaveNotification" from our APLParseOperation
+- (void)mergeChanges:(NSNotification *)notification {
+    
+    if (notification.object != self.managedObjectContext) {
+        [self performSelectorOnMainThread:@selector(updateMainContext:) withObject:notification waitUntilDone:NO];
+    }
+}
+
+// stop the animation of activityIndicator and hide it
+- (void)hideActivityIndicator {
+    
+    // we are done processing earthquakes, stop our activity indicator
+    UIActivityIndicatorView *indicatorView = (UIActivityIndicatorView *)self.activityIndicator.customView;
+    [indicatorView stopAnimating];
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
+// observe the queue's operationCount, stop activity indicator if there is no operatation ongoing.
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (object == self.parseQueue && [keyPath isEqualToString:@"operationCount"]) {
+        
+        if (self.parseQueue.operationCount == 0) {
+            [self performSelectorOnMainThread:@selector(hideActivityIndicator) withObject:nil waitUntilDone:NO];
+        }
+    }
+    else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -9,6 +9,7 @@
 #import "SAPAddTopicViewController.h"
 
 @interface SAPAddTopicViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonAddTopic;
 
 @end
 

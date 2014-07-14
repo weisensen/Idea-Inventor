@@ -8,7 +8,19 @@
 
 #import "SAPTopicTableViewCell.h"
 
+@interface SAPTopicTableViewCell()
+
+@property (nonatomic, weak) IBOutlet UILabel        *labelTopicTitle;
+@property (nonatomic, weak) IBOutlet UITextView     *labelTopicText;
+@property (nonatomic, weak) IBOutlet UILabel        *labelNumberOfIdeas;
+@property (nonatomic, weak) IBOutlet UIImageView    *imageIdeas;
+@property (nonatomic, weak) IBOutlet UILabel        *labelNumberOfViewed;
+@property (nonatomic, weak) IBOutlet UIImageView    *imageViewed;
+
+@end
+
 @implementation SAPTopicTableViewCell
+
 
 - (void)configureWithTopic:(Topic*) topic{
 
