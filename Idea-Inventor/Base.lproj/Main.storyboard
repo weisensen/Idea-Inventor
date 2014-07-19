@@ -138,6 +138,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonAddTopic" destination="xhE-zQ-JqB" id="pzP-uA-LXG"/>
+                        <outlet property="labelTopicText" destination="bms-ln-zOa" id="lEe-tk-D0M"/>
+                        <outlet property="labelTopicTitle" destination="QfY-83-aNV" id="daq-4Q-ZGW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fY-QG-aRu" userLabel="First Responder" sceneMemberID="firstResponder"/>

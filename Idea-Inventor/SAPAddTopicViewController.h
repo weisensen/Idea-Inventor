@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Topic.h"
 
 @interface SAPAddTopicViewController : UIViewController
+
+@property (nonatomic) Topic   *topic;
 
 @end

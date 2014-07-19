@@ -7,13 +7,34 @@
 //
 
 #import "SAPAddTopicViewController.h"
+#import "Topic.h"
 
 @interface SAPAddTopicViewController ()
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonAddTopic;
+@property (weak, nonatomic) IBOutlet UITextField *labelTopicTitle;
+@property (weak, nonatomic) IBOutlet UITextField *labelTopicText;
+
 
 @end
 
+
 @implementation SAPAddTopicViewController
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (sender != self.buttonAddTopic) return;
+    if (self.labelTopicTitle.text.length >0) {
+        
+        self.topic = [[Topic alloc] init];
+        self.topic.createdBy = @"Sensen";
+        self.topic.createdOn = [NSDate date];
+        self.topic.title     = self.labelTopicTitle.text;
+        self.topic.text      = self.labelTopicText.text;
+        
+    }
+    
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
