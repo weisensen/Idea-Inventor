@@ -342,7 +342,10 @@
         topic.title  = source.topicTitle;
         topic.text   = source.topicText;
         
-        [self.TopicList addObject:topic];
+        //[self.TopicList addObject:topic];
+        
+        [self.managedObjectContext insertObject:topic];
+        
         [self.tableView reloadData];
         
     }
