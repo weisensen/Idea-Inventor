@@ -525,6 +525,7 @@
 				4CEC7DE41972760200D3360A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CEC7DE51972760200D3360A /* Build configuration list for PBXNativeTarget "Idea-InventorTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +534,7 @@
 				4CEC7DE71972760200D3360A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
