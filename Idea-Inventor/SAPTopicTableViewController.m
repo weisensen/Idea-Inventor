@@ -61,16 +61,16 @@
 {
     
     // Return the number of sections.
-    return 1;
-    //return [[self.fetchedResultsController sections] count];
+    //return 1;
+    return [[self.fetchedResultsController sections] count];
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.TopicList count];
-    /*
+    //return [self.TopicList count];
+    
     NSInteger numberOfRows = 0;
 	
     if ([[self.fetchedResultsController sections] count] > 0) {
@@ -79,7 +79,7 @@
     }
     
     return numberOfRows;
-    */
+    
 }
 
 
@@ -120,11 +120,11 @@
         [fetchRequest setEntity:entity];
         
         // Edit the sort key as appropriate.
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"CreatedOn" ascending:NO];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
         
         [fetchRequest setSortDescriptors:sortDescriptors];
-        
+    
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
         NSFetchedResultsController *aFetchedResultsController =
@@ -194,7 +194,7 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Topic" withExtension:@"mom"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Database" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     return _managedObjectModel;
@@ -333,9 +333,16 @@
     
     SAPAddTopicViewController *source = [segue sourceViewController];
     
-    if( source.topic != nil ){
-     
-        [self.TopicList addObject:source.topic];
+    if( source.topicTitle != nil ){
+        
+        NSEntityDescription *ent = [NSEntityDescription entityForName:@"Topic" inManagedObjectContext:self.managedObjectContext];
+        // create an earthquake managed object, but don't insert it in our moc yet
+        Topic *topic = [[Topic alloc] initWithEntity:ent insertIntoManagedObjectContext:nil];
+        
+        topic.title  = source.topicTitle;
+        topic.text   = source.topicText;
+        
+        [self.TopicList addObject:topic];
         [self.tableView reloadData];
         
     }

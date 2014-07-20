@@ -26,11 +26,9 @@
     if (sender != self.buttonAddTopic) return;
     if (self.labelTopicTitle.text.length >0) {
         
-        self.topic = [[Topic alloc] init];
-        self.topic.createdBy = @"Sensen";
-        self.topic.createdOn = [NSDate date];
-        self.topic.title     = self.labelTopicTitle.text;
-        self.topic.text      = self.labelTopicText.text;
+        self.topicTitle   = [NSString stringWithString:self.labelTopicTitle.text];
+        self.topicText    = [NSString stringWithString:self.labelTopicText.text ];
+        
         
     }
     

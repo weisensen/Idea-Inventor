@@ -13,4 +13,7 @@
 
 @property (nonatomic) Topic   *topic;
 
+@property (strong, nonatomic) NSString           *topicTitle;
+@property (strong, nonatomic) NSString           *topicText;
+
 @end

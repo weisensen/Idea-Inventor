@@ -7,6 +7,7 @@
 //
 
 #import "SAPTopicTableViewCell.h"
+#import "Topic.h"
 
 @interface SAPTopicTableViewCell()
 
@@ -24,6 +25,8 @@
 
 - (void)configureWithTopic:(Topic*) topic{
 
+    self.labelTopicTitle.text = topic.title;
+    self.labelTopicText.text  = topic.text;
     
 }
 
